@@ -15,13 +15,15 @@
 
 #![allow(dead_code)]
 
+use core::ffi::c_char;
+
 // Link api-ms-win-crt-conio-l1-1-0.dll
 #[link(name="api-ms-win-crt-conio-l1-1-0", kind="raw-dylib")]
 extern{
     fn _getch() -> i32;
     fn _getche() -> i32;
 
-    fn _putch(ch:char) -> i32;
+    fn _putch(ch: c_char) -> i32;
 }
 
 // Constants
@@ -109,7 +111,7 @@ pub fn getche() -> i32 {
 /// Output 1 byte to the console
 pub fn putch(ch:char) -> i32 {
     unsafe {
-        _putch(ch)
+        _putch(ch as c_char)
     }
 }
 
