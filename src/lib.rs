@@ -12,10 +12,16 @@
 
 #![allow(dead_code)]
 
+use std::ffi::c_char;
+use std::ffi::CString;
+
 // Link api-ms-win-crt-conio-l1-1-0.dll
 #[link(name="api-ms-win-crt-conio-l1-1-0", kind="raw-dylib")]
 extern{
     fn _getch() -> i32;
+    fn _getche() -> i32;
+
+    fn _putch(ch:char) -> i32;
 }
 
 // Constants
@@ -90,6 +96,18 @@ const UPPER_Z: i32 = 90;
 pub fn getch() -> i32 {
     unsafe {
         _getch()
+    }
+}
+
+pub fn getche() -> i32 {
+    unsafe {
+        _getche()
+    }
+}
+
+pub fn putch(ch:char) -> i32 {
+    unsafe {
+        _putch(ch)
     }
 }
 
