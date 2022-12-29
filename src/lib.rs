@@ -15,6 +15,7 @@
 
 #![allow(dead_code)]
 
+use std::ffi::CString;
 use core::ffi::c_char;
 
 // Link api-ms-win-crt-conio-l1-1-0.dll
@@ -23,7 +24,9 @@ extern{
     fn _getch() -> i32;
     fn _getche() -> i32;
 
-    fn _putch(ch: c_char) -> i32;
+    fn _cputs(s:*const c_char) -> i32;
+
+    fn _putch(s: c_char) -> i32;
 }
 
 // Constants
@@ -94,6 +97,7 @@ const LOWER_Z: i32 = 122;
 const UPPER_Z: i32 = 90;
 
 // Implementation
+
 /// Enter 1 byte from the console.
 pub fn getch() -> i32 {
     unsafe {
@@ -105,6 +109,14 @@ pub fn getch() -> i32 {
 pub fn getche() -> i32 {
     unsafe {
         _getche()
+    }
+}
+
+pub fn cputs(ch:&str) -> i32 {
+    unsafe {
+        let c_string = CString::new(ch).unwrap();
+        let cstr_ptr:*const  c_char = c_string.as_ptr();
+        _cputs(cstr_ptr)
     }
 }
 
