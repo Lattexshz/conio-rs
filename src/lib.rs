@@ -15,9 +15,6 @@
 
 #![allow(dead_code)]
 
-use std::ffi::c_char;
-use std::ffi::CString;
-
 // Link api-ms-win-crt-conio-l1-1-0.dll
 #[link(name="api-ms-win-crt-conio-l1-1-0", kind="raw-dylib")]
 extern{
