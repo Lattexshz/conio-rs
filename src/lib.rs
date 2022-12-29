@@ -10,6 +10,9 @@
 //
 //========================================================================
 
+//! conio_rs
+//! Windows conio API wrapper for rust
+
 #![allow(dead_code)]
 
 use std::ffi::c_char;
@@ -69,7 +72,7 @@ const UPPER_N: i32 = 78;
 const LOWER_O: i32 = 111;
 const UPPER_O: i32 = 79;
 const LOWER_P: i32 = 112;
-const UPPER_P: i32 = 80; //com
+const UPPER_P: i32 = 80;
 const LOWER_Q: i32 = 113;
 const UPPER_Q: i32 = 81;
 const LOWER_R: i32 = 114;
@@ -92,25 +95,28 @@ const LOWER_Z: i32 = 122;
 const UPPER_Z: i32 = 90;
 
 // Implementation
-// getch()
+/// Enter 1 byte from the console.
 pub fn getch() -> i32 {
     unsafe {
         _getch()
     }
 }
 
+/// Enter 1 byte from console with Echo.
 pub fn getche() -> i32 {
     unsafe {
         _getche()
     }
 }
 
+/// Output 1 byte to the console
 pub fn putch(ch:char) -> i32 {
     unsafe {
         _putch(ch)
     }
 }
 
+/// Converts i32 to Ascii characters.
 pub fn to_ascii(code:i32) -> char {
     code as u8 as char
 }
