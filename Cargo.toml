@@ -1,7 +1,10 @@
 [package]
-name = "conio-rs"
+name = "conio_rs"
 version = "0.1.0"
 edition = "2021"
+authors = ["Overtime Coder"]
+description = "Wrapper to Windows conio API."
+license = "MIT"
 
 [lib]
 crate-type = ["rlib"]
