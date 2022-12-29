@@ -4,7 +4,11 @@ version = "0.1.0"
 edition = "2021"
 authors = ["Overtime Coder"]
 description = "Wrapper to Windows conio API."
-license = "MIT"
+license-file = "LICENSE"
+repository = "https://github.com/OvertimeCoder/conio_rs"
+readme = "README.md"
+categories = ["Command line utilities","API bindings"]
+keywords = ["conio","console","api"]
 
 [lib]
 crate-type = ["rlib"]
