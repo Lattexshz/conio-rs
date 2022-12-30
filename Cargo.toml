@@ -1,11 +1,11 @@
 [package]
 name = "conio_rs"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["Overtime Coder"]
 description = "Wrapper to Windows conio API."
-license-file = "LICENSE"
-repository = "https://github.com/OvertimeCoder/conio_rs"
+license = "MIT"
+repository = "https://github.com/OvertimeCoder/conio-rs"
 readme = "README.md"
 categories = ["Command line utilities","API bindings"]
 keywords = ["conio","console","api"]
